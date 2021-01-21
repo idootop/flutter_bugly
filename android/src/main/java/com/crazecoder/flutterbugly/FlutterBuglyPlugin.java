@@ -1,7 +1,10 @@
 package com.crazecoder.flutterbugly;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
 
 import com.crazecoder.flutterbugly.bean.BuglyInitResultInfo;
 import com.crazecoder.flutterbugly.utils.JsonUtil;

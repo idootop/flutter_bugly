@@ -1,10 +1,7 @@
 package com.crazecoder.flutterbugly;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.text.TextUtils;
-
-import androidx.annotation.NonNull;
 
 import com.crazecoder.flutterbugly.bean.BuglyInitResultInfo;
 import com.crazecoder.flutterbugly.utils.JsonUtil;
@@ -63,7 +60,7 @@ public class FlutterBuglyPlugin implements FlutterPlugin, MethodCallHandler, Act
                     int delay = call.argument("initDelay");
                     strategy.setAppReportDelay(delay * 1000);
                 }
-                CrashReport.init(activity.getApplicationContext(), appId, BuildConfig.DEBUG, strategy);
+                Bugly.init(activity.getApplicationContext(), appId, BuildConfig.DEBUG, strategy);
                 result(getResultBean(true, appId, "Bugly 初始化成功"));
             } else {
                 result(getResultBean(false, null, "Bugly appId不能为空"));
@@ -78,7 +75,7 @@ public class FlutterBuglyPlugin implements FlutterPlugin, MethodCallHandler, Act
             if (call.hasArgument("userTag")) {
                 Integer userTag = call.argument("userTag");
                 if (userTag != null)
-                    CrashReport.setUserTag(activity.getApplicationContext(), userTag);
+                    CrashReport.setUserSceneTag(activity.getApplicationContext(), userTag);
             }
             result(null);
         } else if (call.method.equals("putUserData")) {

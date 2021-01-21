@@ -9,8 +9,4 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
 
-    <application
-        android:usesCleartextTraffic="true">
-    </application>
-
 </manifest>

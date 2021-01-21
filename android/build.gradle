@@ -46,5 +46,4 @@ android {
 dependencies {
     implementation 'com.tencent.bugly:crashreport:3.3.3'
     implementation 'com.tencent.bugly:nativecrashreport:3.7.7'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

@@ -3,19 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.crazecoder.flutterbugly">
 
-    <application
-        android:usesCleartextTraffic="true"
-        tools:targetApi="n">
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
 
-        <provider
-            android:name="com.tencent.bugly.beta.utils.BuglyFileProvider"
-            android:authorities="${applicationId}.fileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
-        </provider>
+    <application
+        android:usesCleartextTraffic="true">
     </application>
 
 </manifest>

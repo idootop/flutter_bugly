@@ -70,14 +70,12 @@ class FlutterBugly {
   }
 
   ///上报自定义异常信息，data为文本附件
-  ///Android 错误分析=>跟踪数据=>extraMessage.txt
-  ///iOS 错误分析=>跟踪数据=>crash_attach.log
   static Future<Null> uploadException(
-      {@required String message, @required String detail, Map data}) async {
+      {String message, String stack, String tag}) async {
     var map = {};
-    map.putIfAbsent("crash_message", () => message);
-    map.putIfAbsent("crash_detail", () => detail);
-    if (data != null) map.putIfAbsent("crash_data", () => data);
+    map.putIfAbsent("crash_message", () => message ?? '');
+    map.putIfAbsent("crash_detail", () => stack ?? '');
+    map.putIfAbsent("crash_tag", () => tag ?? '');
     await _channel.invokeMethod('postCatchedException', map);
   }
 }

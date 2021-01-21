@@ -100,15 +100,19 @@ public class FlutterBuglyPlugin implements FlutterPlugin, MethodCallHandler, Act
 
     private void postException(MethodCall call) {
         String message = "";
-        String detail = null;
+        String detail = "";
+        String tag = "";
         if (call.hasArgument("crash_message")) {
             message = call.argument("crash_message");
         }
         if (call.hasArgument("crash_detail")) {
             detail = call.argument("crash_detail");
         }
+        if (call.hasArgument("crash_detail")) {
+            tag = call.argument("crash_tag");
+        }
         if (TextUtils.isEmpty(detail)) return;
-        CrashReport.postException(8, "Flutter Exception", message, detail, null);
+        CrashReport.postException(8, message, tag, detail, null);
 
     }
 
